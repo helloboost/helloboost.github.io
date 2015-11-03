@@ -1,7 +1,7 @@
 var stringCurrentLeague = Array("", "Bronze", "Silver", "Gold", "Platinum","Diamond");
 var stringGoalLeague = Array("", "Bronze", "Silver", "Gold", "Platinum", "Diamond");
 var stringDivision = Array("", "V", "IV", "III", "II", "I");
-var basePrices = Array("", 5, 17, 25, 40, 50);
+var basePrices = Array("", 3, 10, 15, 20, 35);
 var goalDivisionIndex;
 var goalLeagueIndex;
 var currentDivisionIndex;
