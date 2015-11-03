@@ -15,9 +15,23 @@ function calculate() {
         price = calculateSameLeaguePrice();
 
     }
+    price = price.toFixed(2);
     priceString = '<p id="totalPrice"><strong><FONT SIZE ="4">Total price: '+price+' €</FONT></strong></p>';
     totalPrice = document.getElementById("totalPrice");
     totalPrice.innerHTML = priceString;
+    buttonPrice = document.getElementById("buttonTotalPrice");
+    buttonPriceString = '<li id="buttonTotalPrice">'+
+                        '<form name="_xclick" action="https://www.paypal.com/es/cgi-bin/webscr" method="post">\n'+
+                        '<input type="hidden" name="cmd" value="_xclick">\n'+
+                        '<input type="hidden" name="business" value="infohelloboost@gmail.com">\n'+
+                        '<input type="hidden" name="currency_code" value="EUR">\n'+
+                        '<input type="hidden" name="item_name" value="Eloboost">\n'+
+                        '<input type="hidden" name="amount" value="'+price+'">\n'+
+                        '<input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">\n'+
+                        '</form>\n'+
+                        '</li>\n';
+    console.log(buttonPriceString);
+    buttonPrice.innerHTML = buttonPriceString;
 }
 function getCurrentDivisionIndex() {
     return stringDivision.indexOf(currentDivision);
