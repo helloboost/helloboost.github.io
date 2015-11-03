@@ -30,7 +30,6 @@ function calculate() {
                         '<input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">\n'+
                         '</form>\n'+
                         '</li>\n';
-    console.log(buttonPriceString);
     buttonPrice.innerHTML = buttonPriceString;
 }
 function getCurrentDivisionIndex() {
