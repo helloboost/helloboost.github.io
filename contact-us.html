@@ -49,27 +49,13 @@
                                 <div class="col-1">
                                     <div class="indent">
                                         <h3>Contact Us</h3>
-                                        <form id="contacts-form" action="#">
-                                            <li>For any further information feel free to message us completing the info gien below.</li>
-                                            <fieldset>
-                                                <div class="field">
-                                                    <label>Your Name:</label>
-                                                    <input type="text" value=""/>
-                                                </div>
-                                                <div class="field">
-                                                    <label>Your E-mail:</label>
-                                                    <input type="text" value=""/>
-                                                </div>
-                                                <div class="field">
-                                                    <label>Your Website:</label>
-                                                    <input type="text" value=""/>
-                                                </div>
-                                                <div class="field">
-                                                    <label>Your Message:</label>
-                                                    <textarea cols="1" rows="1"></textarea>
-                                                </div>
-                                                <div class="alignright"><a href="#">Send Your Message!<b></b></a></div>
-                                            </fieldset>
+                                        <form action="mailto:falconpower702@gmail.com" enctype="text/plain" method="post">
+                                            <p>Name: <input name="Name" type="text" id="Name" size="40"></p>
+                                            <p>E-mail address: <input name="E-mail" type="text" id="E-mail" size="40"></p>
+                                            <p>Comment:</p>
+                                            <p><textarea name="Comment" cols="55" rows="5"
+                                            id="Comment"></textarea></p>
+                                            <p><input type="submit" name="Submit" value="Submit"></p>
                                         </form>
                                     </div>
                                 </div>
