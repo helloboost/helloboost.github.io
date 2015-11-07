@@ -33,15 +33,14 @@ function calculatePromoPrice() {
         if (getType === "Bo3") {
             promoPrice = basePrices[stringGoalLeague.indexOf(getLeague)] * 0.75;
         } else {
-            console.log("Pene gordo");
-            console.log(getType);
             promoPrice = basePrices[stringGoalLeague.indexOf(getLeague)];
         }
         promotionPrice = document.getElementById("promotionPrice");
-        promotionPrice.innerHTML = promoPrice;
+        promoPriceString = '<FONT SIZE="3">Total price: '+promoPrice+' €<FONT/>'
+        promotionPrice.innerHTML = promoPriceString;
     } else {
         promotionPrice = document.getElementById("promotionPrice");
-        promotionPrice.innerHTML = '<h1>0 €<h/>';
+        promotionPrice.innerHTML = '<FONT SIZE="3">Total price : 0 €<FONT/>';
 
     }
 }
