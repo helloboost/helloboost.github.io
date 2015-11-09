@@ -25,7 +25,7 @@ function calculate() {
                         '<input type="hidden" name="cmd" value="_xclick">\n'+
                         '<input type="hidden" name="business" value="infohelloboost@gmail.com">\n'+
                         '<input type="hidden" name="currency_code" value="EUR">\n'+
-                        '<input type="hidden" name="item_name" value="Eloboost">\n'+
+                        '<input type="hidden" name="item_name" value="'+"Eloboost: "+currentLeague+" "+currentDivision+" "+"to"+" "+goalLeague+" "+goalDivision+'">\n'+
                         '<input type="hidden" name="amount" value="'+price+'">\n'+
                         '<input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">\n'+
                         '</form>\n'+

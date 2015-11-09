@@ -7,12 +7,14 @@
         <script src="js/cufon-yui.js" type="text/javascript"></script>
         <script src="js/cufon-replace.js" type="text/javascript"></script>
         <script src="js/Myriad_Pro_300.font.js" type="text/javascript"></script>
+        <script src="duoQApi.js" type="text/javascript"></script>
+        <script src="calculatePrice.js" type="text/javascript"></script>
         <!--[if lt IE 7]>
         <script type="text/javascript" src="js/ie_png.js"></script>
         <script type="text/javascript">ie_png.fix('.png, #header .row-2 ul li a, #content, .list li');</script>
         <![endif]-->
     </head>
-    <body id="page2">
+    <body id="page4">
         <div class="tail-top">
             <div class="tail-bottom">
                 <div class="body-bg">
@@ -27,8 +29,8 @@
                             <ul>
                                 <li class="m1"><a href="index.html">Home</a></li>
                                 <li class="m2"><a href="about-us.html">About</a></li>
-                                <li class="m3"><a href="services.html" class="active">Services</a></li>
-                                <li class="m4"><a href="support.html">Support</a></li>
+                                <li class="m3"><a href="services.html">Services</a></li>
+                                <li class="m4"><a href="support.html" class="active">Support</a></li>
                                 <li class="m5"><a href="contact-us.html">Contact us</a></li>
                             </ul>
                         </div>
@@ -48,15 +50,42 @@
                             <div class="wrapper">
                                 <div class="col-1">
                                     <div class="indent">
-                                        <h3>Services</h3>
+                                        <h3>DuoQ</h3>
                                         <hr/>
                                         <ul class="list1">
-                                            <li>We are not like other EloBoost sites, we offer you much more services to improve not only your elo, also your playstyle.</li>
-                                            <li><a href="service-eloboosting.html"><img src="images/eloboost-wrapper.png" alt="" /><strong>Eloboost</a></strong>You can purchase a booster to get a higher ranking at League Of Legends.</li>
-                                            <li><a href="service-promogames.html"><img src="images/promotion-wrapper.png" alt="" /><strong>Promotion games</a></strong>We can play your promo games in your place to secure a win.</li>
-                                            <li><a href="service-duoq.html"><img src="images/duoq-wrapper.png" alt="" /><strong>Duo Q</a></strong>If you want to play on your own account but still want a booster on your side, we can offer you Duo Q with one of our assistance accounts.</li>
-                                            <!--<li><img src="images/img-wrapper.jpg" alt="" /><strong><a href="#">Coaching</a></strong>If you want to improve on a sprecific role/champion or the game itself, we can aid you spectating your games and giving you tips on how to improve your playstyle.</li>-->
-                                            
+                                            <li id="duoImg">
+                                                <img src="images/BronzeI.png" alt="" />
+                                            </li>
+                                            <li>
+                                                <FONT SIZE=4>Select your league</FONT>
+                                                <select id="duoQLeague" onchange="getDuoqLeague(this)">
+                                                    <option value="promoLeagueBronze">Bronze</option>
+                                                    <option value="promoLeagueSilver">Silver</option>
+                                                    <option value="promoLeagueGold">Gold</option>
+                                                    <option value="promoLeaguePlatinum">Platinum</option>
+                                                    <option value="promoLeagueDiamond">Diamond</option>
+                                                </select>   
+                                            </li>   
+                                            <li>
+                                                <FONT SIZE=4>Amount of games</FONT>
+                                                <input id="idAmountGames" type="text" name="amountOfGames" value="1" maxlength="2" size="1" onchange="getAmountGames(this)">
+                                                </br>
+                                                </br>
+                                                <input type="button" value="Calculate" onclick="execute()"/>    
+                                            </li>   
+                                            <li>
+                                                <p id="duoTotalPrice"><strong><FONT SIZE ="4">Total price: 3.00€</FONT></strong></p>
+                                            </li>
+                                            <li>
+                                                <form name="_xclick" action="https://www.paypal.com/es/cgi-bin/webscr" method="post">
+                                                    <input type="hidden" name="cmd" value="_xclick">
+                                                    <input type="hidden" name="business" value="infohelloboost@gmail.com">
+                                                    <input type="hidden" name="currency_code" value="EUR">
+                                                    <input id="buttonDuoType" type="hidden" name="item_name" value="1 Bronze DuoQ">
+                                                    <input id="buttonDuoPrice"type="hidden" name="amount" value="3">
+                                                    <input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
