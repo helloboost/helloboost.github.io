@@ -1,6 +1,7 @@
 var getLeague = "Bronze";
 var getType = "Bo3";
 var canPromo = true;
+var promoPrice;
 function getPromoLeague(promoLeague) {
     getLeague = promoLeague.options[promoLeague.selectedIndex].text;
     if (getLeague === "Diamond") {
@@ -36,12 +37,19 @@ function calculatePromoPrice() {
             promoPrice = basePrices[stringGoalLeague.indexOf(getLeague)];
         }
         promotionPrice = document.getElementById("promotionPrice");
-        promoPriceString = '<FONT SIZE="3">Total price: '+promoPrice+' €<FONT/>'
+        promoPriceString = '<FONT SIZE="3">Total price: ' + promoPrice + ' €<FONT/>'
         promotionPrice.innerHTML = promoPriceString;
+        buttonControl();
     } else {
         promotionPrice = document.getElementById("promotionPrice");
         promotionPrice.innerHTML = '<FONT SIZE="3">Total price : 0 €<FONT/>';
+        buttonControl();
 
+    }
+    function buttonControl() {
+        payButton = document.getElementById("seriesPrice");
+        payButtonString = '<input id="seriesPrice" type="hidden" name="amount" value="' + promoPrice + '">'
+        payButton.innerHTML = payButtonString;
     }
 }
 

@@ -75,7 +75,17 @@
                                             </li>   
                                             <li id="promotionPrice">
 
-                                                <FONT SIZE="3">Total price = 2.25 €</FONT>
+                                                <p id="totalPrice"><strong><FONT SIZE ="4">Total price = 2.25 €</FONT></strong></p>
+                                            </li>
+                                            <li>
+                                                <form name="_xclick" action="https://www.paypal.com/es/cgi-bin/webscr" method="post">
+                                                    <input type="hidden" name="cmd" value="_xclick">
+                                                    <input type="hidden" name="business" value="infohelloboost@gmail.com">
+                                                    <input type="hidden" name="currency_code" value="EUR">
+                                                    <input type="hidden" name="item_name" value="Promotion Series Boost">
+                                                    <input id="seriesPrice" type="hidden" name="amount" value="3">
+                                                    <input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">
+                                                </form>
                                             </li>
                                         </ul>
                                     </div>
