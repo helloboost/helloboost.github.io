@@ -3,6 +3,7 @@ var amountGames = 1;
 var canDuo = true;
 var duoPrice = 3;
 var stringDuoImg;
+var extraGames = 0;
 function getDuoqLeague(leagueSelect) {
     duoLeague = leagueSelect.options[leagueSelect.selectedIndex].text;
     if (duoLeague === "Diamond") {
@@ -25,6 +26,7 @@ function execute() {
     calculateDuoPrice();
     displayDuoQPrice();
     updatePayButton();
+    calculateOffers();
 }
 function calculateDuoPrice() {
     duoPrice = basePrices[stringGoalLeague.indexOf(duoLeague)] * amountGames;
@@ -32,9 +34,9 @@ function calculateDuoPrice() {
 function displayDuoQPrice() {
     duoTextPrice = document.getElementById("duoTotalPrice");
     if (canDuo) {
-        stringDuoPrice = '<p id="duoTotalPrice"><strong><FONT SIZE ="4">Total price:' + duoPrice + '€</FONT></strong></p>';
+        stringDuoPrice = '<p id="duoTotalPrice"><strong><FONT SIZE ="4">Total price: ' + duoPrice + '.00€</FONT></strong></p>';
         duoTextPrice.innerHTML = stringDuoPrice;
-    }else{
+    } else {
         stringDuoPrice = '<p id="duoTotalPrice"><strong><FONT SIZE ="4"></FONT></strong></p>';
         duoTextPrice.innerHTML = stringDuoPrice;
     }
@@ -47,11 +49,20 @@ function updateDuoImg() {
 function processDuoImg() {
     stringDuoImg = "images/" + duoLeague + "I" + ".png";
 }
-function updatePayButton(){
+function updatePayButton() {
     duoButtonType = document.getElementById("buttonDuoType");
     duoButtonPrice = document.getElementById("buttonDuoPrice");
-    buttonDuoTypeString = '<input id="buttonDuoType" type="hidden" name="item_name" value="'+amountGames+" "+duoLeague +' DuoQ">'
-    buttonDuoPriceString='<input id="buttonDuoPrice"type="hidden" name="amount" value="'+duoPrice+'">';
+    buttonDuoTypeString = '<input id="buttonDuoType" type="hidden" name="item_name" value="' + amountGames + " " + duoLeague + ' DuoQ">'
+    buttonDuoPriceString = '<input id="buttonDuoPrice"type="hidden" name="amount" value="' + duoPrice + '">';
     duoButtonType.innerHTML = buttonDuoTypeString;
     duoButtonPrice.innerHTML = buttonDuoPriceString;
+}
+function calculateOffers() {
+    extraGames = amountGames / 3;
+    extraGames = Math.trunc(extraGames);
+    if (extraGames > 0) {
+        extraGamesDisplay = document.getElementById("offers");
+        extraGamesDisplay.innerHTML = '<i><p id="offers">Note: you will receive ' + extraGames + " extra duoQ game/s" + '</p></i>'
+
+    }
 }
