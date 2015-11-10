@@ -1,4 +1,4 @@
-var stringCurrentLeague = Array("", "Bronze", "Silver", "Gold", "Platinum","Diamond");
+var stringCurrentLeague = Array("", "Bronze", "Silver", "Gold", "Platinum", "Diamond");
 var stringGoalLeague = Array("", "Bronze", "Silver", "Gold", "Platinum", "Diamond");
 var stringDivision = Array("", "V", "IV", "III", "II", "I");
 var basePrices = Array("", 3, 10, 15, 20, 35);
@@ -15,21 +15,28 @@ function calculate() {
         price = calculateSameLeaguePrice();
 
     }
+    offerPriceDisplay = document.getElementById("eloboostCheckbox");
+    if (offerPriceDisplay !== null) {
+        if (offerPriceDisplay.checked) {
+            calculateOfferPrice();
+        }
+
+    }
     price = price.toFixed(2);
-    priceString = '<p id="totalPrice"><strong><FONT SIZE ="4">Total price: '+price+' €</FONT></strong></p>';
+    priceString = '<p id="totalPrice"><strong><FONT SIZE ="4">Total price: ' + price + ' €</FONT></strong></p>';
     totalPrice = document.getElementById("totalPrice");
     totalPrice.innerHTML = priceString;
     buttonPrice = document.getElementById("buttonTotalPrice");
-    buttonPriceString = '<li id="buttonTotalPrice">'+
-                        '<form name="_xclick" action="https://www.paypal.com/es/cgi-bin/webscr" method="post">\n'+
-                        '<input type="hidden" name="cmd" value="_xclick">\n'+
-                        '<input type="hidden" name="business" value="infohelloboost@gmail.com">\n'+
-                        '<input type="hidden" name="currency_code" value="EUR">\n'+
-                        '<input type="hidden" name="item_name" value="'+"Eloboost: "+currentLeague+" "+currentDivision+" "+"to"+" "+goalLeague+" "+goalDivision+'">\n'+
-                        '<input type="hidden" name="amount" value="'+price+'">\n'+
-                        '<input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">\n'+
-                        '</form>\n'+
-                        '</li>\n';
+    buttonPriceString = '<li id="buttonTotalPrice">' +
+            '<form name="_xclick" action="https://www.paypal.com/es/cgi-bin/webscr" method="post">\n' +
+            '<input type="hidden" name="cmd" value="_xclick">\n' +
+            '<input type="hidden" name="business" value="infohelloboost@gmail.com">\n' +
+            '<input type="hidden" name="currency_code" value="EUR">\n' +
+            '<input type="hidden" name="item_name" value="' + "Eloboost: " + currentLeague + " " + currentDivision + " " + "to" + " " + goalLeague + " " + goalDivision + '">\n' +
+            '<input type="hidden" name="amount" value="' + price + '">\n' +
+            '<input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">\n' +
+            '</form>\n' +
+            '</li>\n';
     buttonPrice.innerHTML = buttonPriceString;
 }
 function getCurrentDivisionIndex() {
@@ -108,4 +115,7 @@ function getPriceScales() {
         default:
             return new Array("", 1.2, 2, 2.5, 3, 1.2);
     }
+}
+function calculateOfferPrice() {
+    price = price + price * 0.5;
 }

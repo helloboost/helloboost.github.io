@@ -30,15 +30,25 @@ function changeCurrentImage() {
     calculate();
 }
 function changeGoalImage() {
+    checkOffer();
     goalImage = "images/" + goalLeague + goalDivision + ".png";
     image = document.getElementById("goalLeagueImage");
     image.innerHTML = '<li id="' + goalLeagueImage + '"><img src="' + goalImage + '" alt="" />';
     calculate();
 }
 function changeGoalImage_ (updatedLeague, updatedDivision) {
+    checkOffer();
     goalImage = "images/" + updatedLeague + updatedDivision + ".png";
     image = document.getElementById("goalLeagueImage");
     image.innerHTML = '<li id="' + goalLeagueImage + '"><img src="' + goalImage + '" alt="" />';
     calculate();
 }
-
+function checkOffer(){
+    if (goalLeague === "Gold" && goalDivision === "V") {
+        offerDisplay = document.getElementById("boostoffer");
+        offerDisplay.innerHTML = '<p><input id="eloboostCheckbox" type="checkbox" name="eloboostOffer" value="EloBoostOffer" onchange="calculate()">Get another boost to Gold V with 50% discount!</p>';
+    }else{
+        offerDisplay = document.getElementById("boostoffer");
+        offerDisplay.innerHTML = '<p id="boostoffer"></p>';
+    }
+}
