@@ -36,7 +36,7 @@ function calculate() {
                     '<input type="hidden" name="cmd" value="_xclick">\n' +
                     '<input type="hidden" name="business" value="infohelloboost@gmail.com">\n' +
                     '<input type="hidden" name="currency_code" value="EUR">\n' +
-                    '<input type="hidden" name="item_name" value="' + "Eloboost: " + currentLeague + " " + currentDivision + " " + "to" + " " + goalLeague + " " + goalDivision +" Friendly gold included"+ '">\n' +
+                    '<input type="hidden" name="item_name" value="' + "Eloboost: " + currentLeague + " " + currentDivision + " " + "to" + " " + goalLeague + " " + goalDivision + " Friendly gold included" + '">\n' +
                     '<input type="hidden" name="amount" value="' + checkedPrice + '">\n' +
                     '<input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">\n' +
                     '</form>\n' +
@@ -47,6 +47,9 @@ function calculate() {
             checked = false;
             hideOffer();
         }
+    } else {
+        checked = false;
+        hideOffer();
     }
 
 
@@ -140,8 +143,7 @@ function getPriceScales(cleagueIndex) {
             return new Array("", 1.25, 1.4, 1.25, 1.25, 1.3);
             break;
         case 4:
-            return new Array("", 1.15, 1.1, 1.1, 1.25, 1);
-            break;
+            return new Array("", 1.15, 1.1, 1.1, 1.25, 1);             break;
         default:
             return new Array("", 1.2, 2, 2.5, 3, 1.2);
     }
